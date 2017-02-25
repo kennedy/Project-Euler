@@ -14,4 +14,4 @@ i = 2520
 while not smallest(i):
     i += 2520;
 print("final")
-print i
+print(i)
