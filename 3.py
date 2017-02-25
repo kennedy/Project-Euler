@@ -11,5 +11,4 @@ while lpf < highest:
         lpf += 2
     else:
         lpf += 2
-print lpf
-
+print(lpf)

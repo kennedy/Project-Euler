@@ -17,4 +17,4 @@ for i in xrange(999,100,-1):
         if ifPal(i*j) and (i*j)> highest:
             highest = i * j
 
-print highest
+print(highest)

@@ -23,4 +23,4 @@ data = []
 while len(data) < 10001:
    data = primesfrom2to(n)
    n=n+3
-print data[-1]
+print(data[-1])
