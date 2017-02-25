@@ -10,6 +10,8 @@ engines:
       - php
   fixme:
     enabled: true
+    exclude_fingerprints:
+    - af96bb43a68ab226e55e7948f3f8913c
   radon:
     enabled: true
 ratings:
