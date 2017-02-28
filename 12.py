@@ -41,4 +41,7 @@ for i in range(2, 7 + 1):
     triangle = find_triangle_numbers(i)
     prime_of_triangle = primesfrom2to(triangle)
     factors = [ i for i in prime_of_triangle if triangle % i == 0]
-    print(triangle, prime_of_triangle, factors)
+    factors.append(1)
+    factors.append(triangle)
+
+    print(triangle, prime_of_triangle, set(factors))
