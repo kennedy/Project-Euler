@@ -19,3 +19,26 @@ We can see that 28 is the first triangle number to have over five divisors.
 
 What is the value of the first triangle number to have over five hundred divisors?
 """
+import numpy
+
+
+def primesfrom2to(n):
+    # http://stackoverflow.com/questions/2068372/fastest-way-to-list-all-primes-below-n-in-python/3035188#3035188
+    sieve = numpy.ones(n//3 + (n%6==2), dtype=numpy.bool)
+    sieve[0] = False
+    for i in range(int(n**0.5)//3+1):
+        if sieve[i]:
+            k=int(3*i+1|1)
+            sieve[   int((k*k)/3)      ::2*k] = False
+            sieve[int((k*k+4*k-2*k*(i&1))/3)::2*k] = False
+    return numpy.r_[2,3,((3*numpy.nonzero(sieve)[0]+1)|1)]
+
+
+def find_triangle_numbers(n):
+    return sum(range(1, n+1))
+
+for i in range(2, 7 + 1):
+    triangle = find_triangle_numbers(i)
+    prime_of_triangle = primesfrom2to(triangle)
+    factors = [ i for i in prime_of_triangle if triangle % i == 0]
+    print(triangle, prime_of_triangle, factors)
