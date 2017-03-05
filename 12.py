@@ -20,6 +20,9 @@ We can see that 28 is the first triangle number to have over five divisors.
 What is the value of the first triangle number to have over five hundred divisors?
 """
 import numpy
+import math
+import functools
+from pprint import pprint
 
 
 def primesfrom2to(n):
@@ -37,11 +40,53 @@ def primesfrom2to(n):
 def find_triangle_numbers(n):
     return sum(range(1, n+1))
 
-for i in range(2, 7 + 1):
-    triangle = find_triangle_numbers(i)
-    prime_of_triangle = primesfrom2to(triangle)
-    factors = [ i for i in prime_of_triangle if triangle % i == 0]
-    factors.append(1)
-    factors.append(triangle)
 
-    print(triangle, prime_of_triangle, set(factors))
+def find_factors(n):
+    step = 2 if n%2 else 1
+    temp = ([i, n // i] for i in range(1, int(math.sqrt(n)) + 1, step) if n % i == 0)
+
+    return set(functools.reduce(list.__add__,
+                                temp))
+
+def oldway():
+    i = 2
+    factors = []
+    while len(factors) < 10:
+        triangle = find_triangle_numbers(i)
+        prime_of_triangle = primesfrom2to(triangle)
+        factors = [ i for i in prime_of_triangle if triangle % i == 0]
+        factors.append(1)
+        factors.append(triangle)
+        for num in set(factors):
+            temp = triangle / num
+            if temp != 0:
+                factors.append(int(temp))
+        sqr = math.sqrt(triangle)
+        if sqr == math.ceil(sqr):
+            factors.append(int(sqr))
+        i += 1
+        factors = set(factors)
+    print(triangle, len(factors), factors)
+
+
+def testing(n):
+    step = 2 if n/2 else 1
+    temp = ([i, n // i] for i in range(1, int(math.sqrt(n)) + 1, step) if n % i == 0)
+    for i in temp:
+        print(i)
+    return temp
+
+#
+# start = 1
+# currentNum = 0
+# len_of_factor = 0
+# while len_of_factor <= 10:
+#     currentNum += start
+#     start += 1
+#     factors = find_factors(currentNum)
+#     len_of_factor = len(factors)
+#     # print(currentNum, len_of_factor, factors)
+
+check = 28
+print(testing(check))
+print(find_factors(check))
