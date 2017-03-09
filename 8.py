@@ -63,4 +63,7 @@ def greatProduct(inData, n=3):
          highest[1] = rollProduct
    return highest
 
-print(greatProduct(data,13))
+def main():
+      return(greatProduct(data,13))
+
+if __name__ == "__main__": main()

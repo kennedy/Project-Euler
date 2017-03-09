@@ -9,12 +9,15 @@ Find the product abc.
 
 *** using algorithm in http://stackoverflow.com/a/3436152
 """
-b = 0
-for a in range(1, 500):
-    if 1000*(500-a) % (1000-a) == 0:
-        b = int(1000*(500-a) / (1000-a))
-        print(a, b)
-        break
-c = 1000 - a - b
-print(c)
-print(c*b*a)
+
+def main():
+    b = 0
+    for a in range(1, 500):
+        if 1000*(500-a) % (1000-a) == 0:
+            b = int(1000*(500-a) / (1000-a))
+            break
+    c = 1000 - a - b
+    return(c*b*a)
+
+if __name__ == "__main__": main()
+

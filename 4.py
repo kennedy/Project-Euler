@@ -10,11 +10,14 @@ def ifPal(data):
         return True
     else:
         return False
-highest = 0
 
-for i in xrange(999,100,-1):
-    for j in xrange(999,100,-1):
-        if ifPal(i*j) and (i*j)> highest:
-            highest = i * j
+def main():
+    highest = 0
+    for i in range(999,100,-1):
+        for j in range(999,100,-1):
+            if ifPal(i*j) and (i*j)> highest:
+                highest = i * j
 
-print(highest)
+    return(highest)
+
+if __name__ == "__main__": main()
