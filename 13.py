@@ -104,6 +104,9 @@ data = """
 53503534226472524250874054075591789781264330331690
 """
 
-S = sum([int(i) for i in data.split()])
-S = str(S)
-print(S[:10])
+def main():
+    S = sum([int(i) for i in data.split()])
+    S = str(S)
+    return(S[:10])
+
+if __name__ == "__main__": main()

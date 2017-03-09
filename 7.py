@@ -26,9 +26,12 @@ def primesfrom3to(n):
             sieve[int(i*i/2)::i] = False
     return 2*numpy.nonzero(sieve)[0][1::]+1
 
-n = 104755
-data = []
-while len(data) < 10001:
-   data = primesfrom2to(n)
-   n=n+3
-print(data[-1])
+def main():
+    n = 104755
+    data = []
+    while len(data) < 10001:
+       data = primesfrom2to(n)
+       n=n+3
+    return(data[-1])
+
+if __name__ == "__main__": main()

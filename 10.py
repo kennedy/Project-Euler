@@ -27,6 +27,9 @@ def primesfrom3to(n):
             sieve[int(i*i/2)::i] = False
     return 2*numpy.nonzero(sieve)[0][1::]+1
 
-# products = primesfrom2to(2e6)
-products = primesfrom2to(10)
-print(sum(products))
+def main():
+    # products = primesfrom2to(2e6)
+    products = primesfrom2to(10)
+    return(sum(products))
+
+if __name__ == "__main__": main()

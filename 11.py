@@ -85,14 +85,15 @@ def evaluate_four_grid(in_data=[['']],n = 4):
         highest_product = temp
     return highest_product
 
+def main():
+    rolling_product = 0
+    n = 4
+    for r in range(17):
+        for c in range(17):
+            grid = grab_four(data, r, c)
+            temp = evaluate_four_grid(grid)
+            if temp > rolling_product:
+                rolling_product = temp
+    return(rolling_product)
 
-rolling_product = 0
-n = 4
-for r in range(17):
-    for c in range(17):
-        grid = grab_four(data, r, c)
-        temp = evaluate_four_grid(grid)
-        if temp > rolling_product:
-            rolling_product = temp
-
-print(rolling_product)
+if __name__ == "__main__": main()

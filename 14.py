@@ -15,20 +15,22 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 """
 import math
 
-starting = int(1e6)
-longestChain = [0,0]
-while starting != 1:
-    cycle = starting
-    count = 1
-    while cycle != 1:
-        if cycle % 2 == 0:
-            cycle = int(cycle/2)
-        else:
-            cycle = 3 * cycle + 1
-        count += 1
-    if longestChain[1] < count :
-        longestChain[1] = count
-        longestChain[0] = starting
-        print(longestChain)
-    starting -= 1
-print(longestChain)
+def main():
+    starting = int(1e6)
+    longestChain = [0,0]
+    while starting != 1:
+        cycle = starting
+        count = 1
+        while cycle != 1:
+            if cycle % 2 == 0:
+                cycle = int(cycle/2)
+            else:
+                cycle = 3 * cycle + 1
+            count += 1
+        if longestChain[1] < count :
+            longestChain[1] = count
+            longestChain[0] = starting
+        starting -= 1
+    return(longestChain[0])
+
+if __name__ == "__main__": main()

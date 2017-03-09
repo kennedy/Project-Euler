@@ -76,17 +76,18 @@ def testing(n):
         print(i)
     return temp
 
-#
-# start = 1
-# currentNum = 0
-# len_of_factor = 0
-# while len_of_factor <= 10:
-#     currentNum += start
-#     start += 1
-#     factors = find_factors(currentNum)
-#     len_of_factor = len(factors)
-#     # print(currentNum, len_of_factor, factors)
+def main():
+    start = 1
+    currentNum = 0
+    len_of_factor = 0
+    while len_of_factor <= 50:
+        currentNum += start
+        start += 1
+        factors = find_factors(currentNum)
+        len_of_factor = len(factors)
+    # print(currentNum, len_of_factor, factors)
+    return(currentNum)
 
-check = 28
-print(testing(check))
-print(find_factors(check))
+
+if __name__ == "__main__": main()
+
